@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -ggdb
 LDFLAGS=
-SOURCES=
+SOURCES= main.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=balanceBot
 

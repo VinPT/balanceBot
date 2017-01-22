@@ -62,3 +62,7 @@ void Balance::move(char wasd){
 	calc_spd();
 	steer.spd = spd;
 }
+
+Steer Ballance::get_steer(){
+	return steer;
+}

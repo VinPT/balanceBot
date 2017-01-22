@@ -2,6 +2,7 @@
 #include "main.h"
 #include "Balance.h"
 #include "Controls.h"
+#include "gyro.h"
 
 struct Data{
 	float arry[10];
@@ -40,6 +41,7 @@ int main()
 		if(millis() = mili_count){
 			mili_count += 100;
 			B.set_angle_acc(data_avg(data));
+			B.set_elapsed_time(millis());
 			B.move(wasd);
 			step.set_steer(B.get_steer());			
 		}

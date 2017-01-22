@@ -24,14 +24,44 @@ float Balance::calc_angle(){
 void Balance::calc_spd(){
 	//angle_acc = get_angle_acc(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//elapsed_time = get_elapsed_time(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//desired_angle = get_desired_angel(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	calc_spd_count++;
 	proportion = calc_angle() - desired_angle; //could need to be calc_angle() + desired_angle;
 	integral = elapsed_time*proportion/calc_spd_count;
 	spd = p_coeff*proportion + i_coeff*integral;
 }
 
-float Balance::get_spd(){
+void Balance::move(char wasd){
+	switch(wasd){
+		case 'w':
+		case 'W':
+			desired_angle = 2*3.14195* (7 / 8);
+			break;
+		case 's':
+		case 'S':
+			desired_angle = -2*3.14195* (7 / 8);
+			break;
+		case 'a':
+		case 'A':
+			desired_angle = 0;
+			steer.left = 75;
+			steer.right = 100;
+			break;
+		case 'd':
+		case 'D':
+			desired_angle = 0;
+			steer.left = 100;
+			steer.right = 75;
+			break;
+		default:
+			desired_angle = 0;
+			steer.left = 0;
+			steer.right = 0;
+			break;
+	}
 	calc_spd();
-	return spd;
+	steer.spd = spd;
+}
+
+Steer Ballance::get_steer(){
+	return steer;
 }

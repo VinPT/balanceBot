@@ -2,8 +2,15 @@
 #ifndef BALANCE_H
 #define BALANCE_H
 
+struct Steer{
+	int right;
+	int left;
+	float spd;
+};
+
 class Balance{
 private:
+	Steer steer;
 	float desired_angle;
 	float angle_init;
 	float angle_acc;
@@ -20,6 +27,6 @@ private:
 public:
 	Balance();
 	~Balance();
-	float get_spd();
+	Steer get_steer();
 };
 #endif

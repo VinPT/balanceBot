@@ -3,19 +3,20 @@
 #include "Balance.h"
 #include "Controls.h"
 
+struct Data{
+	float arry[10];
+	int count;
+};
 
-struct Acc_data{
-	float acc;
-	struct ACC_data* next;
-};
-class Data_circ_list{
-	private:
-	struct Acc_data* head;
-	public:
-	Data_circ_list();
-	~Data_circ_list();
-	void add_data();
-};
+void add_acc(Data* data, float acc){
+	data.arry[(data.count%10)] = acc;
+	data.count++;
+	if (data.count >= 100000){
+		data.count = 0;
+	}
+}
+	
+
 int main()
 {
 	noecho();//ncurses
@@ -25,8 +26,10 @@ int main()
 	char wasd;
 	Balance B;
 	Stepper step;
+	Data data;
 	while(1){
 		wasd = getch();
+		//add_acc(&data, GYROSCOPE X DATA COMPONENT!!!!!!!!!!!); !!!!!!!!!!!!!!!!
 		if(millis() = mili_count){
 			mili_count += 100;
 			B.move(wasd);

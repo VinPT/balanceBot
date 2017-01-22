@@ -12,7 +12,7 @@ private:
 	float p_coeff;
 	float i_coeff;
 	float spd;
-
+	int calc_spd_count;
 
 	void calc_spd();
 	float calc_angle();

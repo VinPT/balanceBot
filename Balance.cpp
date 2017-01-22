@@ -1,4 +1,4 @@
-#include "Balance.h"
+#include "balance.h"
 
 Balance::Balance(){
 	angle_init = 0;

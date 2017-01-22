@@ -31,7 +31,34 @@ void Balance::calc_spd(){
 	spd = p_coeff*proportion + i_coeff*integral;
 }
 
-float Balance::get_spd(){
+void Balance::move(char wasd){
+	switch(wasd){
+		case 'w':
+		case 'W':
+			desired_angle = 2*3.14195* (7 / 8);
+			break;
+		case 's':
+		case 'S':
+			desired_angle = -2*3.14195* (7 / 8);
+			break;
+		case 'a':
+		case 'A':
+			desired_angle = 0;
+			steer.left = 75;
+			steer.right = 100;
+			break;
+		case 'd':
+		case 'D':
+			desired_angle = 0;
+			steer.left = 100;
+			steer.right = 75;
+			break;
+		default:
+			desired_angle = 0;
+			steer.left = 0;
+			steer.right = 0;
+			break;
+	}
 	calc_spd();
-	return spd;
+	steer.spd = spd;
 }

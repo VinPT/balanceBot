@@ -1,6 +1,7 @@
 #include "balance.h"
 
 Balance::Balance(){
+	desired_angle = 0;
 	angle_init = 0;
 	angle_acc = 0;
 	elapsed_time = 0;
@@ -22,7 +23,8 @@ float Balance::calc_angle(){
 void Balance::calc_spd(){
 	//angle_acc = get_angle_acc(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//elapsed_time = get_elapsed_time(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	proportion = calc_angle();
+	//desired_angle = get_desired_angel(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	proportion = calc_angle() - desired_angle; //could need to be calc_angle() + desired_angle;
 	integral = elapsed_time*proportion;
 	spd = p_coeff*proportion + i_coeff*integral;
 }

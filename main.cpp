@@ -6,5 +6,6 @@
 int main()
 {
 	noecho();//ncurses
+	initscr();//ncurses
 		
 }

@@ -3,6 +3,7 @@
 
 class Balance{
 private:
+	float desired_angle;
 	float angle_init;
 	float angle_acc;
 	float elapsed_time;

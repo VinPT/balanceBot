@@ -28,5 +28,7 @@ public:
 	Balance();
 	~Balance();
 	Steer get_steer();
+	void set_angle_acc(float acc){angle_acc = acc;}
+	void set_elapsed_time(float time){elapsed_time = time;}
 };
 #endif

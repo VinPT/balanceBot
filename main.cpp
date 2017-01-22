@@ -16,6 +16,13 @@ void add_acc(Data* data, float acc){
 	}
 }
 	
+float data_avg(Data data){
+	float total = 0;
+	for(int i = 0; i < 10; i++){
+		total+= data.arry[i];
+	}
+	return (total/10);
+}
 
 int main()
 {
@@ -32,6 +39,7 @@ int main()
 		//add_acc(&data, GYROSCOPE X DATA COMPONENT!!!!!!!!!!!); !!!!!!!!!!!!!!!!
 		if(millis() = mili_count){
 			mili_count += 100;
+			B.set_angle_acc(data_avg(data));
 			B.move(wasd);
 			step.set_steer(B.get_steer());			
 		}

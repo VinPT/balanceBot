@@ -24,7 +24,6 @@ float Balance::calc_angle(){
 void Balance::calc_spd(){
 	//angle_acc = get_angle_acc(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	//elapsed_time = get_elapsed_time(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
-	//desired_angle = get_desired_angel(); !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 	calc_spd_count++;
 	proportion = calc_angle() - desired_angle; //could need to be calc_angle() + desired_angle;
 	integral = elapsed_time*proportion/calc_spd_count;

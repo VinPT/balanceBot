@@ -10,7 +10,7 @@ int main()
 	noecho();//ncurses
 	initscr();//ncurses
 	timeout(10);//ncurses -- waits 10 ms for input
-	int mili_count = millis() + 100;
+	int mili_count = millis() + 100;//wiringpi.h -mllis() returns number of milliseconds since program started
 	char wasd;
 	Balance B;
 	Stepper step;

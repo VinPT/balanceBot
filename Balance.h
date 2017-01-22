@@ -7,13 +7,13 @@ private:
 	float angle_acc;
 	float elapsed_time;
 	float proportion;
-	float intagral;
+	float integral;
 	float p_coeff;
 	float i_coeff;
 	float spd;
 
 
-	float calc_spd();
+	void calc_spd();
 	float calc_angle();
 public:
 	Balance();
